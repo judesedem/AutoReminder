@@ -1,0 +1,10 @@
+#Database
+db.sqlite3
+
+#Python cache files
+__pycache__/
+*.pyc
+
+
+#Virtual environment
+venv/
