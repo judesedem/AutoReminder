@@ -1,14 +1,30 @@
 from django.db import models
-from django.contrib.auth import get_user_model
-
-User=get_user_model
-
+from django.contrib.auth.models import User
 
 class Reminder(models.Model):
-    reminder=models.ForeignKey(User, on_delete=models.CASCADE)
     note=models.TextField(null=True, blank=True)
     title=models.CharField(max_length=100)
-    created_at=models.DateTimeField(auto_now_add=True)
+    RemindItem=models.ForeignKey(User, on_delete=models.CASCADE)
 
     def __str__(self):
-        return f"{ self.title}-{self.reminder}"
+        return self.title
+    
+class ScheduleTime(models.Model):
+    time=models.TimeField()
+    reminder=models.ForeignKey(Reminder,on_delete=models.CASCADE,related_name='schedules')
+
+    def __str__(self):
+        return f"{self.reminder.title}-{self.time}"
+
+class Interval(models.Model):
+   FREQUENCY=[
+       ('D','Daily'),
+       ('W','Weekly'),
+       ('M','Monthly'),
+       ('H','Hourly'),
+   ]
+   frequency=models.CharField(max_length=1, choices=FREQUENCY)
+   start_date=models.DateField()
+
+   def __str__(self):
+       return f"{self.frequency}-{self.start_time}"
