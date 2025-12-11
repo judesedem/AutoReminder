@@ -1,2 +1,12 @@
 ###Signup
-POST 
+POST http://127.0.0.1:8000/api/register/
+Content-Type: application/json
+
+{"username":"JudeSedem","email":"judefiadza@gmail.com","password":"Pass123"}
+
+###Login
+POST http://127.0.0.1:8000/api/login/
+Content-Type: application/json
+
+{"username":"JudeSedem","email":"judefiadza@gmail.com","password":"Pass123"}
+

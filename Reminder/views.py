@@ -9,3 +9,31 @@ class RegisterView(CreateAPIView):
     serializer_class=UserSerializer
     permission_classes=[AllowAny]
     queryset=User.objects.all()
+
+
+from rest_framework.generics import ListCreateAPIView
+from rest_framework.permissions import IsAuthenticated
+from . models import Reminder
+from . serializers import ReminderSerializer
+
+class ReminderListCreateView(ListCreateAPIView):
+    serializer_class=ReminderSerializer
+    permission_classes=[IsAuthenticated]
+
+    def get_queryset(self):
+        return Reminder.objects.filter(user=self.request.user)           
+
+        
+    
+    def perform_create(self,serializer):
+        serializer.save(user=self.request.user)
+
+
+from rest_framework.generics import RetrieveUpdateDestroyAPIView      
+class ReminderDetailView(RetrieveUpdateDestroyAPIView):
+    serializer_class=ReminderSerializer
+    permission_classes=[IsAuthenticated]
+    
+
+    def get_queryset(self):        
+        return Reminder.objects.filter(user=self.request.user)
