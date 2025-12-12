@@ -2,11 +2,52 @@
 POST http://127.0.0.1:8000/api/register/
 Content-Type: application/json
 
-{"username":"JudeSedem","email":"judefiadza@gmail.com","password":"Pass123"}
+{
+    "username": "JudeSedem",
+    "email": "judefiadza@gmail.com",
+    "password": "Pass123"
+}
 
 ###Login
-POST http://127.0.0.1:8000/api/login/
+POST http://127.0.0.1:8000/api/token/
+Content-Type:application/json
+
+{
+    "username": "JudeSedem",
+    "password": "Pass123"
+}
+
+###Create reminders
+POST http://127.0.0.1:8000/api/reminders/
+Content-Type:application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzY1NTM4MjMxLCJpYXQiOjE3NjU1MzQ2MzEsImp0aSI6ImFlZGU0YTExODhkNjQwNGU5YTU3ZGRjYjBiYTYyYjhlIiwidXNlcl9pZCI6IjEifQ.wTu1b2IBNx6PZE5JvaO2pMqbR2ekYgTKDQ3pPencjaA
+
+{
+  "title": "Meeting with Gibson",
+  "note": "Presenting project",
+  "scheduled_time": "2025-12-13T10:00:00Z",
+  "frequency": "O"
+}
+
+
+###Listing all reminders
+GET http://127.0.0.1:8000/api/reminders/
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzY1NTM4MjMxLCJpYXQiOjE3NjU1MzQ2MzEsImp0aSI6ImFlZGU0YTExODhkNjQwNGU5YTU3ZGRjYjBiYTYyYjhlIiwidXNlcl9pZCI6IjEifQ.wTu1b2IBNx6PZE5JvaO2pMqbR2ekYgTKDQ3pPencjaA
+
+###Getting specific reminder
+GET http://127.0.0.1:8000/api/reminders/2/
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzY1NTM4MjMxLCJpYXQiOjE3NjU1MzQ2MzEsImp0aSI6ImFlZGU0YTExODhkNjQwNGU5YTU3ZGRjYjBiYTYyYjhlIiwidXNlcl9pZCI6IjEifQ.wTu1b2IBNx6PZE5JvaO2pMqbR2ekYgTKDQ3pPencjaA
+
+###Updating meeting
+PATCH http://127.0.0.1:8000/api/reminders/1/
 Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzY1NTM4MjMxLCJpYXQiOjE3NjU1MzQ2MzEsImp0aSI6ImFlZGU0YTExODhkNjQwNGU5YTU3ZGRjYjBiYTYyYjhlIiwidXNlcl9pZCI6IjEifQ.wTu1b2IBNx6PZE5JvaO2pMqbR2ekYgTKDQ3pPencjaA
 
-{"username":"JudeSedem","email":"judefiadza@gmail.com","password":"Pass123"}
+{
+  "title":"Group meeting"
+}
 
+###Deleting reminders
+DELETE http://127.0.0.1:8000/api/reminders/5/
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzY1NTM4MjMxLCJpYXQiOjE3NjU1MzQ2MzEsImp0aSI6ImFlZGU0YTExODhkNjQwNGU5YTU3ZGRjYjBiYTYyYjhlIiwidXNlcl9pZCI6IjEifQ.wTu1b2IBNx6PZE5JvaO2pMqbR2ekYgTKDQ3pPencjaA
