@@ -1,6 +1,7 @@
 import requests
 from datetime import timedelta
 from django_q.tasks import schedule
+from django_q.models import Schedule
 from .models import Reminder
 
 def trigger_reminder(reminder_id):
@@ -52,11 +53,14 @@ def calculate_next_occurrence(reminder):
     return current_time
 
 
+
 def schedule_reminder_task(reminder):
-    schedule(
-        'Reminder.tasks.trigger_reminder',  
+    Schedule.objects.filter( name=f"Reminder_{reminder.id}").delete()
+    schedule(       
+       'Reminder.tasks.trigger_reminder',  
         reminder.id,
+        name=f"Reminder_{reminder.id}",
         schedule_type='O',
         next_run=reminder.scheduled_time,
-        name=f"reminder_{reminder.id}"
+         
     )

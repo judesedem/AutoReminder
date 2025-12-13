@@ -18,14 +18,24 @@ class UserSerializer(serializers.ModelSerializer):
         )
         return user
 
-class ReminderSerializer(serializers.ModelSerializer):    
+class ReminderSerializer(serializers.ModelSerializer):  
+    # frequency=serializers.CharField(max_length=1)
     class Meta:
         model=Reminder
         fields='__all__'
         read_only_fields=['user','id']
 
     def validate_scheduled_time(self,value):
-        if value<timezone.now():
+        if value<timezone.now(): #if the user sets a past date
             raise serializers.ValidationError("Set an appropriate date")
+            
 
         return value
+    
+    # def validate_frequency(self,value):
+    #     allowed_values=['O','H','D','W','M']
+    #     if not value: # Giving an appropriate error message
+    #         raise serializers.ValidationError("Field cannot be left empty")
+    #     if value not in allowed_values:
+    #         raise serializers.ValidationError(f"Invalid frequency. Choose from {allowed_values}")
+    #     return value

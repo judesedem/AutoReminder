@@ -3,7 +3,7 @@ POST http://127.0.0.1:8000/api/register/
 Content-Type: application/json
 
 {
-    "username": "JudeSedem",
+    "username": "JudeSedem123",
     "email": "judefiadza@gmail.com",
     "password": "Pass123"
 }
@@ -20,31 +20,35 @@ Content-Type:application/json
 ###Create reminders
 POST http://127.0.0.1:8000/api/reminders/
 Content-Type:application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzY1NTU5ODQwLCJpYXQiOjE3NjU1NTYyNDAsImp0aSI6IjRmNzBiZDg2NjkwYjQxYjRiMWUwNDFkYmI3Y2JmZGU2IiwidXNlcl9pZCI6IjEifQ.8-LrNhAMN1-27Lw1vyLmFHSlpnC9EcdKo7kI6vSCdBo
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzY1NjYwMjYyLCJpYXQiOjE3NjU2NTY2NjIsImp0aSI6ImJlOWVkYjQwZjY1NzQwMGY5N2JmOTc0YzMxNjBjMTQwIiwidXNlcl9pZCI6IjEifQ.RiS4YyHZE9DQiaq5parLSugKnKdCDa8lspXqOsaDuYQ
 
 {
-  "title": "Meeting with Gibson",
-  "note": "Presenting project",
-  "scheduled_time": "2025-12-12T16:20:00Z",
+  "title": "Dude",
+  "note": "Boo",
+  "scheduled_time": "2025-12-13T20:10",
   "frequency": "O"
 }
 
 
 ###Listing all reminders
 GET http://127.0.0.1:8000/api/reminders/
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzY1NTU5ODQwLCJpYXQiOjE3NjU1NTYyNDAsImp0aSI6IjRmNzBiZDg2NjkwYjQxYjRiMWUwNDFkYmI3Y2JmZGU2IiwidXNlcl9pZCI6IjEifQ.8-LrNhAMN1-27Lw1vyLmFHSlpnC9EcdKo7kI6vSCdBo
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzY1NjYwMjYyLCJpYXQiOjE3NjU2NTY2NjIsImp0aSI6ImJlOWVkYjQwZjY1NzQwMGY5N2JmOTc0YzMxNjBjMTQwIiwidXNlcl9pZCI6IjEifQ.RiS4YyHZE9DQiaq5parLSugKnKdCDa8lspXqOsaDuYQ
+
 ###Getting specific reminder
-GET http://127.0.0.1:8000/api/reminders/2/
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzY1NTU5ODQwLCJpYXQiOjE3NjU1NTYyNDAsImp0aSI6IjRmNzBiZDg2NjkwYjQxYjRiMWUwNDFkYmI3Y2JmZGU2IiwidXNlcl9pZCI6IjEifQ.8-LrNhAMN1-27Lw1vyLmFHSlpnC9EcdKo7kI6vSCdBo
+GET http://127.0.0.1:8000/api/reminders/12/
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzY1NjYwMjYyLCJpYXQiOjE3NjU2NTY2NjIsImp0aSI6ImJlOWVkYjQwZjY1NzQwMGY5N2JmOTc0YzMxNjBjMTQwIiwidXNlcl9pZCI6IjEifQ.RiS4YyHZE9DQiaq5parLSugKnKdCDa8lspXqOsaDuYQ
+
 ###Updating meeting
-PATCH http://127.0.0.1:8000/api/reminders/1/
+PATCH http://127.0.0.1:8000/api/reminders/12/
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzY1NTU5ODQwLCJpYXQiOjE3NjU1NTYyNDAsImp0aSI6IjRmNzBiZDg2NjkwYjQxYjRiMWUwNDFkYmI3Y2JmZGU2IiwidXNlcl9pZCI6IjEifQ.8-LrNhAMN1-27Lw1vyLmFHSlpnC9EcdKo7kI6vSCdBo
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzY1NjYwMjYyLCJpYXQiOjE3NjU2NTY2NjIsImp0aSI6ImJlOWVkYjQwZjY1NzQwMGY5N2JmOTc0YzMxNjBjMTQwIiwidXNlcl9pZCI6IjEifQ.RiS4YyHZE9DQiaq5parLSugKnKdCDa8lspXqOsaDuYQ
+
 {
-  "title":"Group meeting"
+  "title":"bob23",
+  "frequency":"W"
 }
 
 ###Deleting reminders
-DELETE http://127.0.0.1:8000/api/reminders/5/
+DELETE http://127.0.0.1:8000/api/reminders/14/
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzY1NTU5ODQwLCJpYXQiOjE3NjU1NTYyNDAsImp0aSI6IjRmNzBiZDg2NjkwYjQxYjRiMWUwNDFkYmI3Y2JmZGU2IiwidXNlcl9pZCI6IjEifQ.8-LrNhAMN1-27Lw1vyLmFHSlpnC9EcdKo7kI6vSCdBo
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzY1NjUzMzIxLCJpYXQiOjE3NjU2NDk3MjEsImp0aSI6ImUxODhlMTYyNjlmOTRiOWU4ZWI1NjEyMTIyNzRmYjQ2IiwidXNlcl9pZCI6IjEifQ.CC9Kwhzbd9fLPLiDCQdbBMVCD-8MOjsEq5NEsGM3vPo
