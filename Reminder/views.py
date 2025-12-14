@@ -70,4 +70,29 @@ class ReminderDetailView(RetrieveUpdateDestroyAPIView):
             {"message":"Reminder deleted successfully!"},
             status=status.HTTP_200_OK
         )
-    
+from rest_framework import generics
+from django.contrib.auth import authenticate
+from .serializers import LoginSerializer
+from rest_framework_simplejwt.tokens import RefreshToken
+class CustomLogin(generics.GenericAPIView):
+    serializer_class=LoginSerializer
+
+    def post(self,request,*args,**kwargs):
+        username=request.data.get("username")
+        password=request.data.get("password")
+        user=authenticate(username=username, password=password)
+        if user is not None:
+            refresh=RefreshToken.for_user(user)
+            serializer=UserSerializer(user)
+            return Response({
+                "Refresh":str(refresh),
+                "Access":str(refresh.access_token),
+                "user":serializer.data                
+            })
+        
+        else:
+            return Response({
+                "Error":"UserNotFound"
+            })
+
+        

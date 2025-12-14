@@ -17,9 +17,17 @@ class UserSerializer(serializers.ModelSerializer):
             password=validated_data['password']
         )
         return user
+class LoginSerializer(serializers.ModelSerializer):
+    username=serializers.CharField(max_length=120)
+    password=serializers.CharField(write_only=True)
+    
+    class Meta:
+        model=User
+        fields=['username','password']
 
+    
 class ReminderSerializer(serializers.ModelSerializer):  
-    # frequency=serializers.CharField(max_length=1)
+    frequency=serializers.CharField(max_length=1)
     class Meta:
         model=Reminder
         fields='__all__'
@@ -32,10 +40,10 @@ class ReminderSerializer(serializers.ModelSerializer):
 
         return value
     
-    # def validate_frequency(self,value):
-    #     allowed_values=['O','H','D','W','M']
-    #     if not value: # Giving an appropriate error message
-    #         raise serializers.ValidationError("Field cannot be left empty")
-    #     if value not in allowed_values:
-    #         raise serializers.ValidationError(f"Invalid frequency. Choose from {allowed_values}")
-    #     return value
+    def validate_frequency(self,value):
+        allowed_values=['O','H','D','W','M']
+        if not value: # Giving an appropriate error message
+            raise serializers.ValidationError("Field cannot be left empty")
+        if value not in allowed_values:
+            raise serializers.ValidationError(f"Invalid frequency. Choose from {allowed_values}")
+        return value

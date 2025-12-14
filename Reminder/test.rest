@@ -1,5 +1,7 @@
+@base_url=127.0.0.1:8000
+@token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzY1NzMwMTMwLCJpYXQiOjE3NjU3MjY1MzAsImp0aSI6IjRhY2ViODc5ZmFjNTQ4MzZhYzVjNmE5YzM0MjE5NjM4IiwidXNlcl9pZCI6IjEifQ.zgpSKT2m_I97WZJqRxJ0Ub4nGGazHDzdYePzcY8CBBg
 ###Signup
-POST http://127.0.0.1:8000/api/register/
+POST http://{{base_url}}/api/register/
 Content-Type: application/json
 
 {
@@ -9,7 +11,7 @@ Content-Type: application/json
 }
 
 ###Login
-POST http://127.0.0.1:8000/api/token/
+POST http://{{base_url}}/api/login/
 Content-Type:application/json
 
 {
@@ -20,31 +22,35 @@ Content-Type:application/json
 ###Create reminders
 POST http://127.0.0.1:8000/api/reminders/
 Content-Type:application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzY1NjYwMjYyLCJpYXQiOjE3NjU2NTY2NjIsImp0aSI6ImJlOWVkYjQwZjY1NzQwMGY5N2JmOTc0YzMxNjBjMTQwIiwidXNlcl9pZCI6IjEifQ.RiS4YyHZE9DQiaq5parLSugKnKdCDa8lspXqOsaDuYQ
+Authorization: Bearer {{token}}
 
 {
-  "title": "Dude",
+  "title": "Meeting with Gibson",
   "note": "Boo",
-  "scheduled_time": "2025-12-13T20:10",
+  "scheduled_time": "2025-12-14T15:29",
   "frequency": "O"
 }
 
 
 ###Listing all reminders
 GET http://127.0.0.1:8000/api/reminders/
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzY1NjYwMjYyLCJpYXQiOjE3NjU2NTY2NjIsImp0aSI6ImJlOWVkYjQwZjY1NzQwMGY5N2JmOTc0YzMxNjBjMTQwIiwidXNlcl9pZCI6IjEifQ.RiS4YyHZE9DQiaq5parLSugKnKdCDa8lspXqOsaDuYQ
+Authorization: Bearer {{token}}
+
+
 
 ###Getting specific reminder
 GET http://127.0.0.1:8000/api/reminders/12/
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzY1NjYwMjYyLCJpYXQiOjE3NjU2NTY2NjIsImp0aSI6ImJlOWVkYjQwZjY1NzQwMGY5N2JmOTc0YzMxNjBjMTQwIiwidXNlcl9pZCI6IjEifQ.RiS4YyHZE9DQiaq5parLSugKnKdCDa8lspXqOsaDuYQ
+Authorization: Bearer {{token}}
+
+
 
 ###Updating meeting
 PATCH http://127.0.0.1:8000/api/reminders/12/
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzY1NjYwMjYyLCJpYXQiOjE3NjU2NTY2NjIsImp0aSI6ImJlOWVkYjQwZjY1NzQwMGY5N2JmOTc0YzMxNjBjMTQwIiwidXNlcl9pZCI6IjEifQ.RiS4YyHZE9DQiaq5parLSugKnKdCDa8lspXqOsaDuYQ
+Authorization: Bearer {{token}}
 
 {
-  "title":"bob23",
+  "title":"bo23",
   "frequency":"W"
 }
 

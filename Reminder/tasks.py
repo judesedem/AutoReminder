@@ -20,7 +20,7 @@ def trigger_reminder(reminder_id):
         }
 
         response = requests.post(webhook_url, json=payload)
-        print(f"Reminder Triggered: {reminder.title} (Status: {response.status_code})")
+        print(f"Reminder Triggered: {reminder.title} schedule completed")
         
         if reminder.frequency != 'O':
             next_time = calculate_next_occurrence(reminder)
