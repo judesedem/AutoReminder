@@ -20,7 +20,7 @@ Content-Type:application/json
 }
 
 ###Create reminders
-POST http://127.0.0.1:8000/api/reminders/
+POST http://{{base_url}}/api/reminders/
 Content-Type:application/json
 Authorization: Bearer {{token}}
 
@@ -33,19 +33,19 @@ Authorization: Bearer {{token}}
 
 
 ###Listing all reminders
-GET http://127.0.0.1:8000/api/reminders/
+GET http://{{base_url}}/api/reminders/
 Authorization: Bearer {{token}}
 
 
 
 ###Getting specific reminder
-GET http://127.0.0.1:8000/api/reminders/12/
+GET http://{{base_url}}/api/reminders/12/
 Authorization: Bearer {{token}}
 
 
 
 ###Updating meeting
-PATCH http://127.0.0.1:8000/api/reminders/12/
+PATCH http://{{base_url}}/api/reminders/12/
 Content-Type: application/json
 Authorization: Bearer {{token}}
 
@@ -55,6 +55,6 @@ Authorization: Bearer {{token}}
 }
 
 ###Deleting reminders
-DELETE http://127.0.0.1:8000/api/reminders/14/
+DELETE http://{{base_url}}/api/reminders/14/
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzY1NjUzMzIxLCJpYXQiOjE3NjU2NDk3MjEsImp0aSI6ImUxODhlMTYyNjlmOTRiOWU4ZWI1NjEyMTIyNzRmYjQ2IiwidXNlcl9pZCI6IjEifQ.CC9Kwhzbd9fLPLiDCQdbBMVCD-8MOjsEq5NEsGM3vPo
+Authorization: Bearer {{token}}
